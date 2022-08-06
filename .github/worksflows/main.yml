@@ -20,18 +20,18 @@ jobs:
         uses: google-github-actions/auth@v0.4.0
         with:
           credentials_json: ${{ secrets.GOOGLE_CLOUD_CREDENTIALS }}
-          
+
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.2.1
 
-      - name: Deploy dw-scraper-ups-invoices-scraper-js
-        working-directory: ./dw-scraper-ups-invoices-scraper-js
+      - name: Deploy yahoo-finance-tickers
+        working-directory: ./yahoo-finance-tickers
         run: >
-          gcloud functions deploy dw-scraper-ups-invoices-scraper-js
-          --region=europe-west6
-          --entry-point=run
-          --timeout=540s
-          --runtime=nodejs14
-          --trigger-topic=daily-trigger-0700
-          --memory=512
-        if: contains(steps.file_changes.outputs.files , 'dw-scraper-ups-invoices-scraper-js/')
+            gcloud functions deploy yahoo-finance-tickers
+            --region=europe-west6
+            --entry-point=run
+            --timeout=540s
+            --runtime=python39
+            --trigger-topic=yahoo-finance-tickers-trigger
+            --memory=4Gi
+        if: contains(steps.file_changes.outputs.files , 'yahoo-finance-tickers')
