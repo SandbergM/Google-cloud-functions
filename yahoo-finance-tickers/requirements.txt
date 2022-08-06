@@ -1,0 +1,4 @@
+pandas==1.4.3
+google-cloud-bigquery==3.3.0
+python-dotenv==0.20.0
+pandas-gbq==0.17.7
