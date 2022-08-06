@@ -122,6 +122,5 @@ def log( msg ):
     curr_datetime = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     print( f"     ###     [{curr_datetime}] { msg }" )
 
-
 if os.getenv( 'ENV' ) == 'dev':
     run()
